@@ -1,0 +1,39 @@
+<nav class="navbar-lewagon navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">Yelp MVC</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to 'List of restaurants', restaurants_path, class: "nav-link"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Add a restaurant', new_restaurant_path, class: "nav-link"%>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h1><%= @restaurant.name %><h1>
+
+  <p><%= @restaurant.address %></p>
+
+  <p><%= @restaurant.phone_number %></p>
+
+  <p><%= @restaurant.category %></p>
+
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item">
+        <p><%= review.rating %></p>
+        <p><%= review.content %></p>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+
+</div>

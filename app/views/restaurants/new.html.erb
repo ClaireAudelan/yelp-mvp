@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">Yelp MVC</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to 'List of restaurants', restaurants_path, class: "nav-link"%>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'Add a restaurant', new_restaurant_path, class: "nav-link"%>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <h1>New restaurant</h1>
+
+  <%= simple_form_for(@restaurant) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category %>
+    <%= f.submit class: "btn btn-primary rounded"%>
+  <% end %>
+
+</div>
